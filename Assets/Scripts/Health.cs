@@ -1,22 +1,32 @@
 using UnityEngine;
-using System.Collections; // Required for Coroutines
+using UnityEngine.UI;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
+    [Header("Health Settings")]
     public float maxHealth = 100f;
     private float currentHealth;
     private bool isDead = false;
 
+    [Header("Animation")]
     public Animator animator;
-    public float deathTimer = 3f; // The time to wait before vanishing
+    public float deathTimer = 3f; // Time to wait before vanishing
+
+    [Header("Optional Health UI")]
+    public Slider healthSlider; // Assign in inspector (player or enemy slider)
 
     void Start()
     {
         currentHealth = maxHealth;
-        // Get the Animator component if it's not already linked
+
         if (animator == null)
-        {
             animator = GetComponent<Animator>();
+
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
         }
     }
 
@@ -25,6 +35,12 @@ public class Health : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        // Update UI
+        if (healthSlider != null)
+            healthSlider.value = currentHealth;
+
         Debug.Log(gameObject.name + " took " + amount + " damage. Remaining health: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -33,34 +49,40 @@ public class Health : MonoBehaviour
         }
         else
         {
-            // Trigger the GetHit animation ONLY if the character is NOT dead
+            // Play GetHit animation if alive
             if (animator != null)
-            {
                 animator.SetTrigger("GetHit");
-            }
         }
     }
 
     private void Die()
     {
+        if (isDead) return;
         isDead = true;
+
         Debug.Log(gameObject.name + " has died!");
-        
+
         if (animator != null)
-        {
             animator.SetTrigger("Die");
-        }
-        
-        // Start the coroutine to vanish the GameObject after a delay
-        StartCoroutine(VanishAfterDeath());
+
+        // Hide health slider
+        if (healthSlider != null)
+            healthSlider.gameObject.SetActive(false);
+
+        // Quit the game after death
+        StartCoroutine(QuitAfterDeath());
     }
 
-    IEnumerator VanishAfterDeath()
+    IEnumerator QuitAfterDeath()
     {
-        // Wait for the death animation to play
+        // Wait a bit for death animation
         yield return new WaitForSeconds(deathTimer);
 
-        // Destroy the GameObject after the delay
-        Destroy(gameObject);
+        Debug.Log("Game over! Exiting...");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Stop play mode in Editor
+#else
+        Application.Quit(); // Quit build
+#endif
     }
 }
