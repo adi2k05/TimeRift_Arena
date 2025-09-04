@@ -2,19 +2,27 @@ using UnityEngine;
 
 public class MeleeHitbox : MonoBehaviour
 {
-    // The amount of damage this hitbox will deal
-    public float attackDamage = 20f;
+    [Header("Damage Settings")]
+    public int damage = 10;
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("MeleeHitbox collided with: " + other.name);
+
+        // Only act on enemies
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log(gameObject.name + " is dealing " + attackDamage + " damage to " + other.gameObject.name);
+            // Look for Health component in the parent object (covers all colliders)
+            Health enemyHealth = other.GetComponentInParent<Health>();
 
-            Health enemyHealth = other.GetComponent<Health>();
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(attackDamage);
+                enemyHealth.TakeDamage(damage);
+                Debug.Log("✅ Enemy took damage: " + other.name + " for " + damage);
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ Enemy object has no Health component in parent!");
             }
         }
     }

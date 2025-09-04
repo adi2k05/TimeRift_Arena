@@ -2,37 +2,42 @@ using UnityEngine;
 
 public class PlayerAttackController : MonoBehaviour
 {
-    // A reference to the Animator component on your player
     public Animator animator;
-    
-    // A reference to the attack hitbox's script
-    public MeleeHitbox hitboxScript;
+    public Collider weaponCollider;   // assign weapon collider in Inspector
+
+    private bool isAttacking = false;
+
+    void Start()
+    {
+        if (weaponCollider != null)
+            weaponCollider.enabled = false; // off by default
+    }
 
     void Update()
     {
-        // Check if the left mouse button is clicked
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isAttacking)
         {
-            // Set the "Attack" trigger in the Animator to play the animation
-            animator.SetTrigger("Attack");
-        }
-    }
-    
-    // This function is called by the animation event at the start of the attack
-    public void StartAttack()
-    {
-        if (hitboxScript != null)
-        {
-            hitboxScript.enabled = true;
+            StartAttack();
         }
     }
 
-    // This function is called by the animation event at the end of the attack
+    void StartAttack()
+    {
+        isAttacking = true;
+        animator.SetTrigger("Attack");
+
+        // Enable weapon collider when attack starts
+        if (weaponCollider != null)
+            weaponCollider.enabled = true;
+    }
+
+    // Called automatically from animation when it finishes
+    // OR we can set a timer if you want fixed attack length
     public void EndAttack()
     {
-        if (hitboxScript != null)
-        {
-            hitboxScript.enabled = false;
-        }
+        isAttacking = false;
+
+        if (weaponCollider != null)
+            weaponCollider.enabled = false;
     }
 }

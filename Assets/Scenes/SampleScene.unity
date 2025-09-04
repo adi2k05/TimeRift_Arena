@@ -206,6 +206,61 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300006, guid: c685db5bd3a0f9b4d8ddb667b78d772f, type: 3}
+--- !u!1 &134269966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134269967}
+  - component: {fileID: 134269968}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134269967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134269966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 0.92, z: 1.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2098263432}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &134269968
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134269966}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &166922651 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100038, guid: c685db5bd3a0f9b4d8ddb667b78d772f, type: 3}
@@ -412,7 +467,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7292658344771522932, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 754108977}
+      addedObject: {fileID: 134269967}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7962199819078159310, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
       insertIndex: -1
@@ -425,10 +480,13 @@ PrefabInstance:
       addedObject: {fileID: 2098263438}
     - targetCorrespondingSourceObject: {fileID: 7962199819078159310, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2098263437}
+      addedObject: {fileID: 2098263436}
     - targetCorrespondingSourceObject: {fileID: 7962199819078159310, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2098263436}
+      addedObject: {fileID: 2098263439}
+    - targetCorrespondingSourceObject: {fileID: 7962199819078159310, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2098263440}
   m_SourcePrefab: {fileID: 100100000, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
 --- !u!1 &256704013 stripped
 GameObject:
@@ -792,6 +850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc64110166b2b9e4cb98644b4a036c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rewindable
+  recordTime: 10
+  isPlayer: 0
   thirdPersonCamera: {fileID: 0}
   topDownCamera: {fileID: 0}
 --- !u!114 &456675731
@@ -1382,6 +1442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc64110166b2b9e4cb98644b4a036c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rewindable
+  recordTime: 10
+  isPlayer: 1
   thirdPersonCamera: {fileID: 901465169}
   topDownCamera: {fileID: 2133613103}
 --- !u!1 &663009876 stripped
@@ -1543,52 +1605,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748893560}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &754108976
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 754108977}
-  - component: {fileID: 754108978}
-  m_Layer: 0
-  m_Name: Rewindable
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &754108977
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754108976}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.97865236, z: -0, w: -0.20552275}
-  m_LocalPosition: {x: 7.518715, y: 0, z: 5.7597523}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2098263432}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &754108978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754108976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc64110166b2b9e4cb98644b4a036c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Rewindable
-  thirdPersonCamera: {fileID: 0}
-  topDownCamera: {fileID: 0}
 --- !u!1 &759012224 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100034, guid: c685db5bd3a0f9b4d8ddb667b78d772f, type: 3}
@@ -1643,6 +1659,51 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300046, guid: c685db5bd3a0f9b4d8ddb667b78d772f, type: 3}
+--- !u!1 &815254692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 815254694}
+  - component: {fileID: 815254693}
+  m_Layer: 0
+  m_Name: RewindManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &815254693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815254692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041c0c5a2686f844fa1c011e939c06ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RewindManager
+  desiredPlaybackTime: 10
+--- !u!4 &815254694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815254692}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.07, y: 0.41146, z: -0.31001}
+  m_LocalScale: {x: 0.9, y: 0.8, z: 0.9}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2572,8 +2633,8 @@ Transform:
   m_GameObject: {fileID: 1417480946}
   serializedVersion: 2
   m_LocalRotation: {x: 0.006085885, y: 0.0009641793, z: 0.034183815, w: 0.9993966}
-  m_LocalPosition: {x: -0.092, y: 0.786, z: -0.505}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.085, y: 0.713, z: -0.504}
+  m_LocalScale: {x: 1, y: 2.0122, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1864587156}
@@ -2590,7 +2651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f7cf17814c2684aab6de8c6ebc67ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeHitbox
-  attackDamage: 20
+  damage: 10
 --- !u!65 &1417480949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2608,7 +2669,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.4, y: 0.3, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0.5}
@@ -2913,6 +2974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc64110166b2b9e4cb98644b4a036c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rewindable
+  recordTime: 10
+  isPlayer: 0
   thirdPersonCamera: {fileID: 0}
   topDownCamera: {fileID: 0}
 --- !u!114 &1846919075
@@ -2975,7 +3038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f7cf17814c2684aab6de8c6ebc67ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hitbox
-  attackDamage: 20
+  damage: 10
 --- !u!65 &1864587161
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3182,10 +3245,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
-  m_Height: 3
+  m_Radius: 1
+  m_Height: 3.3
   m_Direction: 2
-  m_Center: {x: 0, y: 0.85, z: 0}
+  m_Center: {x: 0, y: 1.12, z: 0}
 --- !u!114 &2098263436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3203,7 +3266,29 @@ MonoBehaviour:
   chaseRange: 10
   attackRange: 3
   attackDamage: 2
---- !u!54 &2098263437
+--- !u!195 &2098263438
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405715290}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.8
+  m_Speed: 2
+  m_Acceleration: 2
+  avoidancePriority: 50
+  m_AngularSpeed: 30
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!54 &2098263439
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3230,28 +3315,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!195 &2098263438
-NavMeshAgent:
+--- !u!114 &2098263440
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405715290}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 2
-  m_Acceleration: 2
-  avoidancePriority: 50
-  m_AngularSpeed: 10
-  m_StoppingDistance: 3
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc64110166b2b9e4cb98644b4a036c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rewindable
+  recordTime: 10
+  isPlayer: 0
+  thirdPersonCamera: {fileID: 0}
+  topDownCamera: {fileID: 0}
 --- !u!1 &2131177560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100026, guid: c685db5bd3a0f9b4d8ddb667b78d772f, type: 3}
@@ -3297,7 +3376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2133613101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3359,7 +3438,7 @@ Camera:
   m_GameObject: {fileID: 2133613100}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -3433,8 +3512,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc64110166b2b9e4cb98644b4a036c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rewindable
-  thirdPersonCamera: {fileID: 901465169}
-  topDownCamera: {fileID: 2133613103}
+  recordTime: 10
+  isPlayer: 0
+  thirdPersonCamera: {fileID: 0}
+  topDownCamera: {fileID: 0}
 --- !u!114 &2137542884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3447,7 +3528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6287ffa973c396e4ab90dc4e141c3f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
-  rewindInterval: 30
 --- !u!95 &2137542890 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6982812146204527121, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -3496,7 +3576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackController
   animator: {fileID: 2137542890}
-  hitboxScript: {fileID: 1417480948}
+  weaponCollider: {fileID: 1417480949}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3511,5 +3591,6 @@ SceneRoots:
   - {fileID: 901465170}
   - {fileID: 863567806}
   - {fileID: 1802314625}
+  - {fileID: 815254694}
   - {fileID: 28888095}
   - {fileID: 2133613104}
