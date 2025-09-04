@@ -7,16 +7,13 @@ public class MeleeHitbox : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // This function is called when this hitbox touches another collider
-        
-        // Check if the other object is an enemy
         if (other.CompareTag("Enemy"))
         {
-            // Get the enemy's Health component
+            Debug.Log(gameObject.name + " is dealing " + attackDamage + " damage to " + other.gameObject.name);
+
             Health enemyHealth = other.GetComponent<Health>();
             if (enemyHealth != null)
             {
-                // Tell the enemy to take damage
                 enemyHealth.TakeDamage(attackDamage);
             }
         }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class PlayerAttackController : MonoBehaviour
 {
@@ -16,33 +15,21 @@ public class PlayerAttackController : MonoBehaviour
         {
             // Set the "Attack" trigger in the Animator to play the animation
             animator.SetTrigger("Attack");
-            
-            // Start the coroutine to handle the attack timing
-            StartCoroutine(PerformAttack());
         }
     }
     
-    IEnumerator PerformAttack()
+    // This function is called by the animation event at the start of the attack
+    public void StartAttack()
     {
-        // Disable the hitbox at the start of the attack to prevent multiple hits
-        if (hitboxScript != null)
-        {
-            hitboxScript.enabled = false;
-        }
-
-        // Wait for the exact moment the attack hits
-        yield return new WaitForSeconds(0.44f);
-        
-        // Temporarily enable the hitbox to check for collisions
         if (hitboxScript != null)
         {
             hitboxScript.enabled = true;
         }
+    }
 
-        // Keep the hitbox enabled for a very short moment
-        yield return new WaitForSeconds(0.1f);
-
-        // Disable the hitbox after the attack has landed
+    // This function is called by the animation event at the end of the attack
+    public void EndAttack()
+    {
         if (hitboxScript != null)
         {
             hitboxScript.enabled = false;
